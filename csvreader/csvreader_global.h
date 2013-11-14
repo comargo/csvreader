@@ -1,0 +1,12 @@
+#ifndef CSVREADER_GLOBAL_H
+#define CSVREADER_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(CSVREADER_LIBRARY)
+#  define CSVREADERSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define CSVREADERSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // CSVREADER_GLOBAL_H
