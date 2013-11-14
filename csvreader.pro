@@ -1,4 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    csvreader
+    csvreader \
+    cvsreader_test
+
+cvsreader_test.depends = csvreader

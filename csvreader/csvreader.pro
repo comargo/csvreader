@@ -8,14 +8,14 @@ QT       -= gui
 
 TARGET = csvreader
 TEMPLATE = lib
+CONFIG *= static create_prl
 
-DEFINES += CSVREADER_LIBRARY
+CONFIG(shared):DEFINES += CSVREADER_LIBRARY
 
 SOURCES += csvreader.cpp \
     csvreader_p.cpp
 
 HEADERS += csvreader.h\
-        csvreader_global.h \
     csvreader_p.h
 
 unix:!symbian {

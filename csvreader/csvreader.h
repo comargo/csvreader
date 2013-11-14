@@ -1,13 +1,11 @@
 #ifndef CSVREADER_H
 #define CSVREADER_H
 
-#include "csvreader_global.h"
-
 #include <QObject>
 #include <QStringList>
 
 class CsvReaderPrivate;
-class CSVREADERSHARED_EXPORT CsvReader : public QObject {
+class CsvReader : public QObject {
     Q_OBJECT
 public:
     explicit CsvReader(QObject *parent = 0);
