@@ -12,11 +12,9 @@ CONFIG *= static create_prl
 
 CONFIG(shared):DEFINES += CSVREADER_LIBRARY
 
-SOURCES += csvreader.cpp \
-    csvreader_p.cpp
+SOURCES += csvreader.cpp
 
-HEADERS += csvreader.h\
-    csvreader_p.h
+HEADERS += csvreader.h
 
 unix:!symbian {
     maemo5 {
@@ -26,3 +24,5 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
+STATECHARTS +=

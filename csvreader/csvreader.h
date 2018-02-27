@@ -1,34 +1,28 @@
 #ifndef CSVREADER_H
 #define CSVREADER_H
 
-#include <QObject>
-#include <QStringList>
+#include <QtGlobal>
 
-class CsvReaderPrivate;
-class CsvReader : public QObject {
-    Q_OBJECT
-public:
-    explicit CsvReader(QObject *parent = 0);
-    CsvReader(const QString &data, QObject *parent = 0);
-    ~CsvReader();
+QT_BEGIN_NAMESPACE
+class QString;
+class QStringList;
+template<class T> class QList;
+class QIODevice;
+QT_END_NAMESPACE
 
-public:
-    static QList<QStringList> parse(const QString &data);
+#include <QChar>
 
-public:
-    QString data() const;
-    QList<QStringList> parsedData() const;
+namespace CSVReader {
 
-public Q_SLOTS:
-    bool parse();
-    void setData(const QString &data);
+enum class CSVQuotes { Auto, Always };
 
+QList<QStringList> fromCSV(const QString &data, const QChar &delimeter = QLatin1Char(','));
+QList<QStringList> fromCSV(QByteArray data, const QChar &delimeter = QLatin1Char(','));
+QList<QStringList> fromCSV(QIODevice *device, const QChar &delimeter = QLatin1Char(','));
 
+QString toCSV(const QList<QStringList> &data, const QChar &delimeter = QLatin1Char(','), CSVQuotes quotes = CSVQuotes::Auto);
 
-private:
-    Q_DECLARE_PRIVATE(CsvReader)
-    CsvReaderPrivate* d_ptr;
-    Q_DISABLE_COPY(CsvReader)
-};
+}
+
 
 #endif // CSVREADER_H
